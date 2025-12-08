@@ -1,0 +1,25 @@
+# Python环境
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Jupyter Notebook临时文件
+.ipynb_checkpoints/
+
+# 大模型相关
+*.pth
+*.bin
+*.ckpt
+__MACOSX/
+
+# 临时文件
+tmp/
+*.log
+*.tmp
+
+# 数据文件（大文件建议用DVC等工具管理）
+data/*.csv  # 忽略数据文件夹下的CSV文件
+!data/README.md  # 但保留数据文件夹中的README说明文件
