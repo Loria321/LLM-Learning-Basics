@@ -1,0 +1,5 @@
+{"question": "即梦AI是什么平台", "answer": "即梦AI是字节跳动旗下的AI创作平台，支持文案、图片、视频等多种内容的智能生成。"}
+{"question": "即梦AI支持哪些数据格式用于模型微调", "answer": "即梦AI微调大模型时，推荐使用JSONL格式，也支持先将Excel/CSV转换为JSONL后上传。"}
+{"question": "JSONL格式和CSV格式的区别是什么", "answer": "CSV是通用文本格式，字段用逗号分隔；JSONL是每行一个JSON对象的格式，专为大模型微调优化，内存效率更高。"}
+{"question": "如何将Excel数据转换为即梦AI微调所需的格式", "answer": "先将Excel转换为CSV（保留question和answer列），再将CSV转换为JSONL格式即可。"}
+{"question": "即梦AI的核心功能有哪些", "answer": "即梦AI核心功能包括AI文案创作、图片生成、视频脚本编写、大模型微调、内容润色等。"}
