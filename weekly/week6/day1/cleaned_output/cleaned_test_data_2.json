@@ -1,0 +1,32 @@
+[
+  {
+    "id":1.0,
+    "name":"Alice",
+    "value":10.5
+  },
+  {
+    "id":2.0,
+    "name":"Bob",
+    "value":20.3
+  },
+  {
+    "id":3.0,
+    "name":"Charlie",
+    "value":15.7
+  },
+  {
+    "id":null,
+    "name":"",
+    "value":null
+  },
+  {
+    "id":4.0,
+    "name":"David",
+    "value":25.1
+  },
+  {
+    "id":5.0,
+    "name":"Eve",
+    "value":30.0
+  }
+]
