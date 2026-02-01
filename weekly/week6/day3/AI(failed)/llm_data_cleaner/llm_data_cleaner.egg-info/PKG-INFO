@@ -1,0 +1,31 @@
+Metadata-Version: 2.4
+Name: llm_data_cleaner
+Version: 1.0.0
+Summary: 大模型数据清洗工具箱 V1.0，整合基础清洗、文本专项、结构化处理、批量自动化、质量评估
+Author: Your Name
+Author-email: your_email@example.com
+Keywords: LLM,data cleaning,文本清洗,结构化处理,质量评估
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pandas>=1.3.0
+Requires-Dist: numpy>=1.21.0
+Requires-Dist: jieba>=0.42.1
+Requires-Dist: opencc>=1.1.6
+Requires-Dist: xlrd>=2.0.1
+Requires-Dist: openpyxl>=3.0.10
+Requires-Dist: chardet>=5.1.0
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description-content-type
+Dynamic: keywords
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary

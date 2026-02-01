@@ -1,0 +1,8 @@
+llm_data_cleaner/
+├── __init__.py               # 包入口，导出核心功能
+├── base_clean.py             # 基础清洗模块
+├── text_special.py           # 文本专项处理模块
+├── struct_process.py         # 结构化处理模块
+├── batch_auto.py             # 批量自动化模块
+├── quality_evaluate.py       # 质量评估模块
+└── utils.py                  # 通用工具函数
