@@ -1,12 +1,23 @@
 from typing import List, Union, Optional, Tuple
 import logging
 import pandas as pd
+from datetime import datetime
+import os
 
-# 配置日志：仅保存到本地文件，取消控制台输出
+# 1. 定义日志相关路径和文件名（xx采用日期命名，格式：struct_clean_20260202.log）
+log_dir = r".\logs\struct_clean"  # 目标日志目录：logs\struct_clean
+current_date = datetime.now().strftime("%Y%m%d")  # 获取当前日期，作为xx的替代（更实用）
+log_filename = f"struct_clean_{current_date}.log"  # 日志文件名
+log_full_path = os.path.join(log_dir, log_filename)  # 拼接完整日志路径，兼容跨平台
+
+# 2. 自动创建多级目录（若不存在），避免FileHandler报错
+os.makedirs(log_dir, exist_ok=True)
+
+# 3. 配置日志：仅保存到本地文件，取消控制台输出
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    handlers=[logging.FileHandler("struct_data_clean.log", encoding="utf-8")]  # 日志保存到本地文件
+    handlers=[logging.FileHandler(log_full_path, encoding="utf-8")]  # 使用拼接后的完整路径
 )
 logger = logging.getLogger(__name__)
 
