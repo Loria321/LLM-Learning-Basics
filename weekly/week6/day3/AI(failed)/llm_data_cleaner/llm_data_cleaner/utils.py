@@ -17,9 +17,8 @@ def read_file(file_path: str, encoding: str = "utf-8") -> Union[str, pd.DataFram
     elif ext == ".csv":
         return pd.read_csv(file_path, encoding=encoding)
     elif ext == ".json":
-        # with open(file_path, "r", encoding=encoding) as f:
-        #     return json.load(f)
-        return pd.read_json(file_path, encoding="utf-8")
+        with open(file_path, "r", encoding=encoding) as f:
+            return json.load(f)
     elif ext in [".xlsx", ".xls"]:
         return pd.read_excel(file_path)
     else:

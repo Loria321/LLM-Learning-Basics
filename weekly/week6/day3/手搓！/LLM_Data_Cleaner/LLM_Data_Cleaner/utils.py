@@ -1,5 +1,4 @@
 import os
-import json
 import pandas as pd
 from typing import List, Dict, Union, Optional
 
@@ -23,7 +22,7 @@ def read_file(file_path: str, encoding: str = "utf-8") -> Union[str,pd.DataFrame
         elif ext == ".csv":
             df = pd.read_csv(file_path, encoding=encoding)
         elif ext == ".json":
-            df = df.read_json(file_path, encoding=encoding)
+            df = pd.read_json(file_path, encoding=encoding)
         elif ext in [".xlsx", ".xls"]:
             df = pd.read_excel(file_path, engine="openpyxl")
         else:
@@ -61,8 +60,10 @@ def save_file(
         else:
             raise TypeError("csv格式仅支持DataFrame数据")
     elif ext == ".json":
-        with open(save_path, "w", encoding=encoding) as f:
-            json.dump(data, f, ensure_ascii=False, indent=indent)
+        if isinstance(data,pd.DataFrame):
+            data.to_json(save_path,orient="records",force_ascii=False,indent=indent)    
+        else:
+            raise TypeError("json格式仅支持DataFrame数据")
     elif ext in [".xlsx", ".xls"]:
         if isinstance(data, pd.DataFrame):
             data.to_excel(save_path, index=False)
