@@ -1,0 +1,4 @@
+pandas>=2.0.0
+jieba>=0.42.1
+opencc>=1.1.7
+typing_extensions>=4.8.0

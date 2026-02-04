@@ -1,4 +1,4 @@
-from typing import List, Union, Optional, Tuple
+from typing import Optional
 import logging
 import pandas as pd
 from datetime import datetime
@@ -286,38 +286,38 @@ def struct_clean_pipeline(
     logger.info("数据清洗完成，最终数据形状：{}".format(data.shape))
     return data
 
-if __name__ == "__main__":
-    # 测试数据
-    test_df = pd.DataFrame({
-        "name": ["  alice  ", "bob", "charlie", None, "bob"],
-        "age": [20, 25, 100, 30, 25],
-        "score": [85.5, 90.0, 200.0, None, 90.0],
-        "create_time": ["2024-01-01", " 2024-02-01 ", "2024-03-01", "invalid_date", "2024-02-01"]
-    })
+# if __name__ == "__main__":
+#     # 测试数据
+#     test_df = pd.DataFrame({
+#         "name": ["  alice  ", "bob", "charlie", None, "bob"],
+#         "age": [20, 25, 100, 30, 25],
+#         "score": [85.5, 90.0, 200.0, None, 90.0],
+#         "create_time": ["2024-01-01", " 2024-02-01 ", "2024-03-01", "invalid_date", "2024-02-01"]
+#     })
     
-    # 全量清洗
-    try:
-        cleaned_df = struct_clean_pipeline(
-            data=test_df,
-            duplicate_threshold=10.0,
-            missing_fill_strategy="auto",
-            missing_col_threshold=30.0,
-            outlier_method="IQR",
-            outlier_threshold=5.0
-        )
-        print("清洗后数据：")
-        print(cleaned_df)
-    except Exception as e:
-        logger.error("清洗失败：{}".format(e))
+#     # 全量清洗
+#     try:
+#         cleaned_df = struct_clean_pipeline(
+#             data=test_df,
+#             duplicate_threshold=10.0,
+#             missing_fill_strategy="auto",
+#             missing_col_threshold=30.0,
+#             outlier_method="IQR",
+#             outlier_threshold=5.0
+#         )
+#         print("清洗后数据：")
+#         print(cleaned_df)
+#     except Exception as e:
+#         logger.error("清洗失败：{}".format(e))
     
-    # 单列清洗
-    try:
-        cleaned_col_df = struct_clean_pipeline(
-            data=test_df,
-            col="age",
-            duplicate_threshold=10.0
-        )
-        print("\n单列清洗后数据：")
-        print(cleaned_col_df)
-    except Exception as e:
-        logger.error("单列清洗失败：{}".format(e))
+#     # 单列清洗
+#     try:
+#         cleaned_col_df = struct_clean_pipeline(
+#             data=test_df,
+#             col="age",
+#             duplicate_threshold=10.0
+#         )
+#         print("\n单列清洗后数据：")
+#         print(cleaned_col_df)
+#     except Exception as e:
+#         logger.error("单列清洗失败：{}".format(e))

@@ -731,4 +731,4 @@ def _run_builtin_tests():
     print(f"测试完成：共{test_total_count}个测试，通过{test_pass_count}个，失败{test_total_count - test_pass_count}个")
     print("=" * 60)
 
-_run_builtin_tests()
+# _run_builtin_tests()
