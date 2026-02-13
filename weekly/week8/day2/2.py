@@ -2,17 +2,17 @@ import os
 import json
 import numpy as np
 from openai import OpenAI
-# from dotenv import load_dotenv
-
-# 加载环境变量（读取DASHSCOPE_API_KEY）
-# load_dotenv()
 
 # -------------------------- 1. 核心工具函数 --------------------------
 def cosine_similarity(vec1, vec2):
     """
-    计算两个向量的余弦相似度（兼容不同维度向量）
-    注：余弦相似度仅关注向量方向，维度不同不影响计算逻辑
+    计算两个同维度向量的余弦相似度
+    注：余弦相似度仅关注向量方向，必须保证两个向量维度完全一致
     """
+    # 增加维度一致性校验，提前抛出明确错误
+    if len(vec1) != len(vec2):
+        raise ValueError(f"向量维度不匹配：vec1({len(vec1)}维) vs vec2({len(vec2)}维)")
+    
     # 归一化向量（消除长度影响，提升相似度准确性）
     vec1_norm = vec1 / np.linalg.norm(vec1)
     vec2_norm = vec2 / np.linalg.norm(vec2)
@@ -88,12 +88,6 @@ for idx1, idx2, desc in test_cases:
     print(f"\n{desc}：")
     print(f"  text2vec相似度：{sim_text2vec:.4f}")
     print(f"  通义千问相似度：{sim_qwen:.4f}")
-
-# 额外验证：同一问题的开源/闭源向量语义一致性（补充维度）
-print("\n=== 同一问题的开源/闭源向量语义一致性 ===")
-sample_idx = 0  # 选第一个问题"图书馆几点开门？"
-sim_same_question = cosine_similarity(text2vec_embeddings[sample_idx], qwen_embeddings[sample_idx])
-print(f"'图书馆几点开门？' 的text2vec向量 vs 通义千问向量 相似度：{sim_same_question:.4f}")
 
 # -------------------------- 6. 保存闭源向量数据（可选） --------------------------
 # 将通义千问向量合并到原数据并保存
