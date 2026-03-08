@@ -1,0 +1,3 @@
+{"instruction": "计算1+2", "input": "", "output": "3"}
+{"instruction": "解释特征工程", "input": "大模型微调", "output": 123}
+{"instruction": "缺失字段测试", "input": ""}
